@@ -1,0 +1,13 @@
+numpy==1.16.2
+matplotlib
+pytest
+pytest-pylint
+scipy==1.2.1
+geojson==2.4.1
+shapely==1.6.4.post2
+mercantile==1.0.4
+requests==2.20.0
+requests-mock==1.5.2
+python-dateutil
+rasterio==1.0.21
+tensorflow==1.13.1
