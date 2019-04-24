@@ -105,7 +105,7 @@ class LandCoverClassification:
             for i in range(img_band_cnt):
                 img_bands.append(src.read(i + 1))
         img_ar = np.moveaxis(np.stack(img_bands), 0, 2)
-        logger.info("src.meta")
+        logger.info("src.meta:")
         logger.info(src.meta)
 
         # Call clustering operation
@@ -114,7 +114,8 @@ class LandCoverClassification:
         # Copy geo tif metadata to the output image and write it to a file
         dst_meta = src.meta.copy()
         dst_meta['count'] = 1
-        logger.info("dst_meta")
+        dst_meta['dtype'] = 'uint8'
+        logger.info("dst_meta:")
         logger.info(dst_meta)
         with rio.open(output_file_path, 'w', **dst_meta) as dst:
             dst.write(clusters_ar.astype(rio.uint8), 1)
