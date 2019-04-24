@@ -9,7 +9,7 @@
 * Tags: machine learning, data processing, analytics, land cover
 
 ## Description
-This is a simple, proof-of-concept unsupervised land cover classification algorithm that serves demoing purposes but is not meant in any way to provide reliable results. It is educational as it shows how a land cover classification can be done on the UP42 platform and could be used as a starting point for more rigorous algorithms. I is based on TensorFlow for the same reason: the code can be used as a template for more sophisticated algorithms.
+This is a simple, proof-of-concept unsupervised land cover classification algorithm that serves demoing purposes but is not meant in any way to provide reliable results. It is educational as it shows how a land cover classification can be done on the UP42 platform and could be used as a starting point for more rigorous algorithms. It is based on TensorFlow for the same reason: the code can be used as a template for more sophisticated algorithms.
 
 ## Usage
 
@@ -48,3 +48,4 @@ You can push your block as a Docker image to the UP42 registry like this: `docke
    * [Setting up the development environment](https://docs.up42.com/getting-started/dev-setup.html)
    * [Block specifications](https://docs.up42.com/specifications/index.html)
    * [Block examples](https://docs.up42.com/examples/index.html)
+   * [Tensorflow](https://www.tensorflow.org/)
