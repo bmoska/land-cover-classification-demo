@@ -1,45 +1,110 @@
-# Land Cover Classification
+# Doing Land Coverage Classification on UP42
 
-## General information
+## Introduction
+
+This is a simple instructional proof-of-concept [unsupervised learning](https://en.wikipedia.org/wiki/Cluster_analysis)
+[land coverage](https://en.wikipedia.org/wiki/Land_cover)
+classification algorithm that provides a very simple demo of what is
+possible to do using UP42.
+
+The goal of this project is to guide you through setting UP42 in your
+geospatial pipeline. It shows how easy it is to setup clustering
+algorithm implemented in [https://tensorflow.org](TensorFlow) to
+detect land coverage classification.
+
+## Block description
+
+This is the
+[block](https://docs.up42.com/getting-started/core-concepts.html#blocks)
+description in terms of the UP42 core concepts.
 
 * Block type: processing
 * Supported input types:
-  * AOIClipped (any georeferenced GeoTIFF)
-* Provider: UP42
+  * [AOIClipped](https://specs.up42.com/v1/blocks/schema.json) (any geo-referenced [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF))
+* Provider: [UP42](https://up42.com)
 * Tags: machine learning, data processing, analytics, land cover
 
-## Description
-This is a simple, proof-of-concept unsupervised land cover classification algorithm that serves demoing purposes but is not meant in any way to provide reliable results. It is educational as it shows how a land cover classification can be done on the UP42 platform and could be used as a starting point for more rigorous algorithms. It is based on TensorFlow for the same reason: the code can be used as a template for more sophisticated algorithms.
+## Requirements
+
+ 1. [git](https://git-scm.com/).
+ 2. [docker engine](https://docs.docker.com/engine/).
+ 3. [UP42](https://up42.com) account credentials.
+ 4. [Python](https://python.org) 3.5 or later.
+ 5. Required Python packages as specified in
+    `blocks/land_cover_classification/requirements.txt`.
 
 ## Usage
 
-### Local Development
-Below you can find instructions on how to work on this processing block.
+### Local development HOWTO
 
-#### Working with the code on a dev machine
-The code base of this processing block is written in Python 3.5. The Python packages required to make it work locally are located in `blocks/land_cover_classification/requirements.txt`. You can install these packages on your machine or a virtualenv to get started with development.
+Clone the repository in a given `<directory>`:
 
-#### Running the tests
-This project uses Pytest as it's test runner, you can use the following shell command from the root of the repository to run the tests: `. blocks/land_cover_classification/test.sh`.
+```bash
+git clone https://github.com/up42/land-cover-classification-demo.git <directory>
+``` 
 
-#### Building the Docker image for the processing block
-To build the Docker image for local testing or publishing on the UP42 platform you can run the following shell command from the root of this repository: `cd blocks/land_cover_classification/; docker build -t land_cover_classification -f Dockerfile . --build-arg manifest="$(cat UP42Manifest.json)"; cd -`.
+then do `cd <directory>`.
 
-#### Running the processing block in a Docker container
-To try the processing block on your local development machine in a production-like environment you need the following things:
+#### Run the tests
 
-   * Create the block's input directory `/tmp/input` and output directory `/tmp/output`
-   * Copy the input data (along with the GeoJSON file called `data.json`) to `/tmp/input`
+This project uses [pytest](https://pytest.org/) for testing. To run
+the tests do:
+
+```bash
+./blocks/land_cover_classification/test.sh
+```
+
+from the repository top directory.
+
+#### Build the processing block Docker image 
+
+To build the Docker image for local testing or publishing on the UP42
+platform you can run the following shell command from the root of this
+repository: 
+
+```bash
+cd blocks/land_cover_classification/
+docker build -t land_cover_classification -f Dockerfile . --build-arg manifest="$(cat UP42Manifest.json)"
+cd -
+```
+
+#### Run the processsing block 
+
+   * Create the block's input directory `/tmp/input` and output directory `/tmp/output`.
+   * Copy the input data (along with the
+     [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) file called
+     `data.json`) to `/tmp/input`.
    * Build the docker image as outlined above
-   * Run the following command: `docker run -v /tmp/output:/tmp/output -v /tmp/input:/tmp/input land_cover_classification:latest`
+   * Run the following command: 
+```bash
+docker run --mount type=bind,src=/tmp/output,dst=/tmp/output --mount type=bind,src=/tmp/input,dst=/tmp/input land_cover_classification:latest
+``` 
 
-After this if everything went well the output of the processing block is available in `/tmp/output`.
+This [bind mounts](https://docs.docker.com/storage/bind-mounts/) the
+on the host and container `/tmp/input` and `/tmp/output` directories
+into the **input** and **output** directories respectively. If you
+wish you can set it to some other directory that is convenient to you.
 
-### Publishing
+### Publish the block to UP42
 
-For detailed info on publishing a block please check the UP42 documentation.
+#### Authenticate into the UP42 registry 
 
-You can push your block as a Docker image to the UP42 registry like this: `docker push registry.up42.com/<user_id>/land_cover_classification:latest`.
+Login into the UP42 [Docker image registry](https://docs.docker.com/registry/) 
+with your UP42 user ID (`<user_id>`) and password:
+
+```bash
+   docker login -u <user_id> registry.up42.com
+``` 
+#### Push the block to the registry
+
+Push your block as a Docker image to the UP42 registry like this: 
+
+```bash
+docker push registry.up42.com/<user_id>/land_cover_classification:latest
+```
+
+Learn more about creating and publishing blocks by reading our
+[documentation](https://docs.up42.com/getting-started/first-block.html#).
 
 ### Further resources
 
@@ -49,3 +114,11 @@ You can push your block as a Docker image to the UP42 registry like this: `docke
    * [Block specifications](https://docs.up42.com/specifications/index.html)
    * [Block examples](https://docs.up42.com/examples/index.html)
    * [Tensorflow](https://www.tensorflow.org/)
+
+## TODO
+ 
+ 1. Provide example output.
+ 2. Provide public image.
+ 3. Describe better the process of getting the needed input. 
+ 4. Make the code follow a good style guide for commenting like
+    [Google](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings).
