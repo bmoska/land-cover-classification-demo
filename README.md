@@ -1,16 +1,16 @@
-# Land Coverage Classification on UP42 HOWTO
+# Land Cover Classification on UP42 HOWTO
 
 ## Introduction
 
 This is a simple instructional proof-of-concept [unsupervised learning](https://en.wikipedia.org/wiki/Cluster_analysis)
-[land coverage](https://en.wikipedia.org/wiki/Land_cover)
+[land cover](https://en.wikipedia.org/wiki/Land_cover)
 classification algorithm that provides a very simple demo of what is
 possible to do using UP42.
 
 The goal of this project is to guide you through setting UP42 in your
 geospatial pipeline. It shows how easy it is to setup a clustering
 algorithm implemented in [TensorFlow](https://tensorflow.org) to
-perform land coverage classification.
+perform land cover classification.
 
 ## Block description
 
