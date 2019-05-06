@@ -121,7 +121,7 @@ Learn more about creating and publishing blocks by reading our
 
 ### Support
   
- 1. Open and issue here.
+ 1. Open an issue here.
  2. Reach out to us on
       [gitter](https://gitter.im/up42-com/community).
  3. Mail us [support@up42.com](mailto:support@up42.com).
