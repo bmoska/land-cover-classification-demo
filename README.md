@@ -129,7 +129,4 @@ Learn more about creating and publishing blocks by reading our
 ## TODO
  
  1. Provide example output.
- 2. Provide public image.
- 3. Describe better the process of getting the needed input. 
- 4. Make the code follow a good style guide for commenting like
-    [Google](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings).
+ 2. Better describe the process of getting the needed input. 
