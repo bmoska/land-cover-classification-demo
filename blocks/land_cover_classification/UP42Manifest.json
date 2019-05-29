@@ -7,7 +7,7 @@
         "processing",
         "machine learning"
     ],
-    "display_name": "Land Cover Classification",
+    "display_name": "DEMO: Land Cover Classification",
     "description": "This block takes an AOI clipped image and runs land cover classification on it.\nThe classification is a simple unsupervised K-means clustering in the color space of the image.\nThe number of clusters and other parameters can be specified for the classification.",
     "parameters": {
         "n_clusters": {
