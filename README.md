@@ -45,14 +45,32 @@ git clone https://github.com/up42/land-cover-classification-demo.git <directory>
 ``` 
 
 then do `cd <directory>`.
+#### Install the required libraries
+First create a virtual environment either by using [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) 
+or [virtualenv](https://virtualenv.pypa.io/en/latest/).
+In the case of using virtualenvwrapper do:
 
+```mkvirtualenv --python=$(which python3.7) up42-landcover```
+
+In the case of using virtualenv do:
+
+````
+virtualenv -p $(which python3.7) up42-snap
+````
+
+After creating a virtual environment and activating it, all the necessary libraries can be installed on this environment by doing:
+
+```bash
+cd land-cover-classification/blocks/land-cover-classification
+./setup.sh
+```
 #### Run the tests
 
 This project uses [pytest](https://pytest.org/) for testing. To run
 the tests do:
 
 ```bash
-./blocks/land_cover_classification/test.sh
+cd land-cover-classification/blocks/land_cover_classification/test.sh
 ```
 
 from the repository top directory.
@@ -64,7 +82,7 @@ platform you can run the following shell commands from the repository
 top directory:
 
 ```bash
-cd blocks/land_cover_classification/
+cd land-cover-classification/blocks/land_cover_classification/
 # Build the image.
 docker build -t land_cover_classification -f Dockerfile . --build-arg manifest="$(cat UP42Manifest.json)"
 # Go back to the top directory.
