@@ -55,7 +55,7 @@ In the case of using virtualenvwrapper do:
 In the case of using virtualenv do:
 
 ````
-virtualenv -p $(which python3.7) up42-snap
+virtualenv -p $(which python3.7) up42-landcover
 ````
 
 After creating a virtual environment and activating it, all the necessary libraries can be installed on this environment by doing:
