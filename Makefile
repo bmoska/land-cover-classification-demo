@@ -1,4 +1,4 @@
-# -*- mode: makefile-gmake; mode: pabbrev; mode: electric-pair -*-
+## Include the configuration. 
 include config.mk
 
 VALIDATE_ENDPOINT := https://api.up42.com/validate-schema/block

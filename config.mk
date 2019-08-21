@@ -1,6 +1,5 @@
-# -*- mode: makefile-gmake ; mode: pabbrev; mode: electric-pair -*-
 ## Configuration for Makefile.
-SRC := blocks/land-cover-classification
+SRC := blocks/land_cover_classification
 MANIFEST_JSON := $(SRC)/UP42Manifest.json
 UP42_DOCKERFILE := $(SRC)/Dockerfile
 JOB_CONFIG := $(SRC)/params.json  
