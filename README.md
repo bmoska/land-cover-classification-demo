@@ -53,7 +53,7 @@ where `<directory>` is the directory where the cloning is done.
 
 ### Build the docker image
 
-For building the image you should tag the image such that it can bu
+For building the image you should tag the image such that it can be
 pushed to the UP42 docker registry, enabling you to run it as a custom
 block. For that you need to pass your user ID (UID) in the `make`
 command.
