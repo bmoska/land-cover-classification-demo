@@ -30,7 +30,7 @@ The output is a [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) file.
 
 ### Block capabilities
 
-The block takes a `up42.aoi_clipped` input
+The block takes a `up42.aoiclipped` input
 [capability](https://docs.up42.com/specifications/capabilities.html)
 and delivers a [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) file.
 
