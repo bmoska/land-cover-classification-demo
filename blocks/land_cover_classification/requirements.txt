@@ -11,3 +11,7 @@ requests-mock==1.5.2
 python-dateutil
 rasterio==1.0.21
 tensorflow==1.13.1
+mypy==0.720
+mypy-extensions==0.4.1
+pytest-cov==2.7.1
+pytest-mypy==0.3.3
